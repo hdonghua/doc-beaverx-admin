@@ -1,0 +1,15 @@
+{
+  "name": "doc-beaverx-admin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BeaverX Admin 前后端保姆级教程文档站",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
