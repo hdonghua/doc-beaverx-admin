@@ -31,5 +31,6 @@ Infrastructure   → MinIO、JWT、SignalR 等实现
 - [新增业务模块](./add-module)
 - [新增菜单与权限](./add-menu-permission)
 - [数据库迁移](./migration)
+- [多节点部署](./multi-node-deployment)
 
 建议先完成 [10 分钟跑起来](/guide/quick-start)。

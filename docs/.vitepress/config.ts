@@ -61,6 +61,7 @@ export default defineConfig({
             { text: '新增业务模块', link: '/backend/add-module' },
             { text: '新增菜单与权限', link: '/backend/add-menu-permission' },
             { text: '数据库迁移', link: '/backend/migration' },
+            { text: '多节点部署', link: '/backend/multi-node-deployment' },
           ],
         },
       ],
