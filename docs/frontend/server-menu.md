@@ -15,8 +15,8 @@ sequenceDiagram
   A-->>F: accessToken + permissions
   F->>A: GET /api/Menu/user-menus
   A-->>F: MenuDto 树
-  F->>F: server-menu 转侧边栏 + allowedRouteNames
-  U->>F: 点击菜单 /ticket/work
+  F->>F: 按 component 匹配静态路由 → allowedRouteNames
+  U->>F: 点击菜单（router.push by name）
   F->>F: 守卫检查 WorkTicketList ∈ allowedRouteNames
   F->>U: 渲染 views/ticket/work/index.vue
 ```
@@ -27,8 +27,8 @@ sequenceDiagram
 
 | 字段 | 说明 | 示例 |
 |------|------|------|
-| `path` | 浏览器路径 | `/ticket/work` |
-| `component` | 视图相对路径 | `ticket/work/index` |
+| `path` | 路由地址，**可自定义** | `/ticket/work` 或 `/my-tickets` |
+| `component` | 视图相对路径，**用于匹配** | `ticket/work/index` |
 | `perms` | 页面权限码 | `ticket:work:list` |
 | `menuType` | 0目录 1菜单 2按钮 | `Menu` |
 | `icon` | 图标（无 `icon-` 前缀） | `file` |
@@ -42,51 +42,62 @@ new Menu
     Name = "工单列表",
     MenuType = MenuType.Menu,
     Perms = RbacPermissionCodes.Ticket.Work.List,
-    Path = "/ticket/work",
-    Component = "ticket/work/index",
+    Path = "/ticket/work",              // 可改成任意地址
+    Component = "ticket/work/index",    // 必须与 views 路径一致
     Icon = "file",
 }
 ```
 
 ---
 
-## PATH_TO_ROUTE_NAME
+## component → route name（自动推导）
 
-`src/utils/server-menu.ts` 核心映射：
+`src/utils/server-menu.ts` 从静态路由懒加载函数解析 `views/` 路径，构建 component 索引：
 
 ```typescript
-const PATH_TO_ROUTE_NAME: Record<string, string> = {
-  '/ticket': 'ticket',
-  '/ticket/work': 'WorkTicketList',
-  '/ticket/process': 'WorkTicketProcess',
-};
+const staticComponentMap = buildStaticComponentMap(staticClientRoutes);
+
+function extractViewComponentKey(component: RouteRecordRaw['component']) {
+  const match = component.toString().match(/views[/\\](.+?)\.vue/i);
+  return match?.[1]; // ticket/work/index
+}
+
+function resolveRouteNameFromComponent(component?: string | null) {
+  const route = staticComponentMap.get(normalizeComponentKey(component)!);
+  return route?.name ? String(route.name) : undefined;
+}
 ```
 
-转换逻辑：
+`collectAllowedRouteNames` 流程：
 
-1. 遍历用户菜单树
-2. 对每个 `MenuType.Menu`，取 `path` 查表得 `routeName`
-3. 将 `routeName` 加入 `allowedRouteNames`
-4. 目录节点用父级 `name` 组装侧边栏
+1. 遍历用户菜单树，对 `MenuType.Menu` 取 `component`
+2. 在 `staticComponentMap` 中查找，得到 `route name`
+3. 加入 `allowedRouteNames`
+4. `includeAncestorRouteNames`：自动补全父级 Layout
 
-**新增页面必做**：在后端加菜单 + 在前端加路由 + 在映射表加一行。
+登录后 `collectInternalRoutesFromMenus` 会按后端菜单树 **重新注册路由**（`path` 取自后端），覆盖静态路由中的默认地址。
+
+**新增页面只需**：
+
+- 前端：`router/routes/modules/*.ts` + `views/`（提供 component 模板）
+- 后端：菜单管理配置 `component` + `path`
+
+`component` 必须与 `views/` 一致；`path` 为实际访问地址，可自定义。
 
 ---
 
 ## 与静态路由的配合
 
-静态路由负责：
+| 职责 | 静态路由 | 服务端菜单 |
+|------|----------|------------|
+| 组件懒加载 | ✅ | |
+| `meta.locale` / 图标 | ✅ | |
+| Layout 嵌套 | ✅ | |
+| 谁能看到菜单 | | ✅ |
+| 谁能访问页面 | | ✅（经 component 映射 name） |
+| 路由 URL | | ✅（`path` 动态注册到 vue-router） |
 
-- 注册 `component` 懒加载
-- 定义 `meta.locale`、`meta.icon`
-- Layout 嵌套（`DEFAULT_LAYOUT`）
-
-服务端菜单负责：
-
-- 用户能看到哪些项
-- 用户能访问哪些 `routeName`
-
-两者通过 **path → name** 桥接。
+两者通过 **component 匹配页面、path 注册地址** 协作。
 
 ---
 
@@ -138,8 +149,8 @@ export function getStaticMenuRoutes(): RouteRecordRaw[] {
 | 现象 | 检查 |
 |------|------|
 | 菜单不显示 | 角色是否分配、`isEnabled`、`isVisible` |
-| 403 | `PATH_TO_ROUTE_NAME`、路由 `name` 拼写 |
-| 404 | 静态路由是否注册、`component` 路径是否存在 |
+| 403 | 后端 `component` 是否与 `views/` 一致（如 `ticket/work/index`） |
+| 404 | 静态路由是否注册、`views` 文件是否存在 |
 | 菜单乱序 | 后端 `Sort` 字段 |
 
 下一步：[权限控制](./permission)

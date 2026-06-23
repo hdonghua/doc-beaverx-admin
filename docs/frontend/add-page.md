@@ -7,9 +7,9 @@
 1. 路由模块 `router/routes/modules/*.ts`
 2. 页面 `views/模块/页面/index.vue`
 3. API `api/server/模块/*.ts`
-4. 权限常量 `constants/permissions.ts`
-5. 菜单映射 `utils/server-menu.ts`
-6. 国际化 `locale/zh-CN/menu.ts`（可选）
+4. 权限常量 `constants/permissions.ts`（`v-permission` 用）
+5. 国际化 `locale/zh-CN/menu.ts`（可选）
+6. 后端菜单管理：配置相同 `path` / `component` / 权限
 
 ---
 
@@ -196,15 +196,17 @@ Ticket: {
 
 ---
 
-## 5. 菜单 path 映射
+## 5. 后端菜单配置
 
-`src/utils/server-menu.ts`：
+在 **菜单管理**（或种子）中配置：
 
-```typescript
-'/ticket/work': 'WorkTicketList',
-```
+| 字段 | 示例 | 说明 |
+|------|------|------|
+| `component` | `ticket/work/index` | **必须**与 `views/ticket/work/index.vue` 对应 |
+| `path` | `/ticket/work` | 路由地址，可自定义 |
+| `perms` | `ticket:work:list` | 页面权限码 |
 
-`name` 必须与路由 `name` **完全一致**。
+前端按 `component` 自动匹配 route name，**无需修改** `server-menu.ts`。
 
 ---
 

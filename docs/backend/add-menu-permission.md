@@ -5,10 +5,10 @@
 ## 整体流程
 
 ```
-1. RbacPermissionCodes 定义权限字符串
-2. RbacDataSeeder 写入菜单 + 按钮权限
-3. 超级管理员角色自动获得新菜单
-4. 前端 PATH_TO_ROUTE_NAME + Permissions 常量对齐
+1. Domain.Shared：权限码
+2. RbacDataSeeder / 菜单管理：菜单 + 按钮
+3. 角色分配
+4. 前端静态路由 + `Permissions` 常量对齐
 ```
 
 ---
@@ -132,19 +132,15 @@ public Task<WorkTicketDto> CreateAsync(...) => ...;
 
 ## 5. 前端对齐（必做）
 
-### PATH_TO_ROUTE_NAME
+### component 与 views 一致
 
-`src/utils/server-menu.ts`：
+后端菜单 `component` 须与 `views/` 路径一致，例如：
 
-```typescript
-const PATH_TO_ROUTE_NAME: Record<string, string> = {
-  '/ticket': 'ticket',
-  '/ticket/work': 'WorkTicketList',
-  '/ticket/process': 'WorkTicketProcess',
-};
-```
+| 后端 `component` | 前端视图 | 自动匹配 |
+|------------------|----------|----------|
+| `ticket/work/index` | `views/ticket/work/index.vue` | `WorkTicketList` |
 
-**漏配后果**：菜单可见，但点击进入 **403**。
+`path` 可自定义（如 `/my-tickets`），不参与匹配。`server-menu.ts` 按 `component` 推导 route name，并补全父级 Layout。
 
 ### Permissions 常量
 
@@ -169,7 +165,7 @@ Ticket: {
 | 现象 | 原因 |
 |------|------|
 | 侧边栏无菜单 | 种子未执行 / 角色未分配 / `isEnabled=false` |
-| 菜单有、点进去 403 | `PATH_TO_ROUTE_NAME` 未配置或 name 与路由不一致 |
+| 菜单有、点进去 403 | 后端 `component` 与 `views/` 路径不一致 |
 | 按钮不显示 | 用户无对应 button 权限码 |
 | API 403 | Controller `[RequirePermission]` 与用户权限不匹配 |
 

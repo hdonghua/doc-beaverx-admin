@@ -89,14 +89,16 @@ public Task<PagedResultDto<WorkTicketDto>> GetListAsync(...) => ...;
 
 ---
 
-## 第五步：PATH_TO_ROUTE_NAME
+## 第五步：后端菜单 component 与 views 对齐
 
-```typescript
-'/ticket': 'ticket',
-'/ticket/work': 'WorkTicketList',
+后端菜单：
+
+```
+component: ticket/work/index   ← 必须与 views 一致
+path: /ticket/work             ← 可自定义
 ```
 
-**三者必须一致**：后端 `path`、映射表 key、路由 `name`。
+前端须有 `views/ticket/work/index.vue` 及对应静态路由。`server-menu.ts` 按 `component` 匹配 `WorkTicketList`，父级 `ticket` 自动放行。
 
 ---
 
@@ -151,7 +153,7 @@ Ticket: {
 ## 常见遗漏
 
 1. 只加了后端菜单，没加前端路由 → 404  
-2. 加了路由，没加 `PATH_TO_ROUTE_NAME` → 403  
+2. 后端 `component` 与 `views/` 路径不一致 → 403  
 3. 权限码前后端大小写不一致 → 按钮永远不显示  
 4. 普通角色未分配菜单 → 侧边栏没有入口  
 

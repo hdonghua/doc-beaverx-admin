@@ -86,18 +86,19 @@ export default TICKET;
 
 ---
 
-## PATH_TO_ROUTE_NAME
+## component 自动匹配（无需手写映射）
 
-后端菜单 `path` 必须映射到前端路由 `name`：
+`server-menu.ts` 从静态路由懒加载解析 `views/` 路径，后端菜单 `component` 查表得到 `route name`：
 
 ```typescript
-// src/utils/server-menu.ts
-const PATH_TO_ROUTE_NAME: Record<string, string> = {
-  '/ticket/work': 'WorkTicketList',
-};
+// 后端 component: ticket/work/index
+// 对应 @/views/ticket/work/index.vue → name: 'WorkTicketList'
+const routeName = resolveRouteNameFromComponent(menu.component);
 ```
 
-**这是最常见的 403 原因。**
+`path` 是后端配置的路由地址，登录后会 **动态注册** 到 vue-router；`component` 用于匹配 `views/` 页面。
+
+**403 最常见原因**：后端 `component` 与 `views/` 路径不一致。
 
 ---
 

@@ -14,7 +14,8 @@
 
 1. 菜单来自 `GET /api/Menu/user-menus`
 2. 路由是否可访问由 `allowedRouteNames` 控制
-3. **新增页面**必须在 `PATH_TO_ROUTE_NAME` 中配置 path → 路由 name，否则 **403**
+3. 后端菜单 `component` 与 `views/` 路径 **自动匹配** 静态路由 route name；`component` 配错会 **403**（`path` 可自定义）
+4. 按钮权限使用 `constants/permissions.ts` + `v-permission`，须与后端 `RbacPermissionCodes` 一致
 
 ## 与本教程的关系
 

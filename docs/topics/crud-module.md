@@ -152,7 +152,7 @@ export function deleteWorkTicket(id: EntityId) {
 2. 权限码 + Controller
 3. RbacDataSeeder 菜单
 4. 前端路由 + API + 页面
-5. `PATH_TO_ROUTE_NAME` + `Permissions`
+5. 后端菜单 `component` 与 `views/` 对齐 + `Permissions` 常量
 6. 角色分配 + 联调
 
 ---
@@ -162,7 +162,7 @@ export function deleteWorkTicket(id: EntityId) {
 - [ ] 列表分页、关键字搜索
 - [ ] 新增 / 编辑 / 删除
 - [ ] 无权限用户看不到按钮、调 API 返回 403
-- [ ] 菜单与路由 name 一致，无 403 误拦
+- [ ] 后端菜单 `component` 与 `views/` 一致，无 403 误拦
 - [ ] 字典项（如有）在 `DictDataSeeder` 已配置
 
 下一步：[菜单 + 权限 + 页面一条龙](./menu-permission-page)
