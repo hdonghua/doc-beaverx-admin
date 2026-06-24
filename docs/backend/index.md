@@ -16,7 +16,7 @@
 ## 技术栈
 
 - .NET 10、ASP.NET Core、BeaverX 模块化框架
-- EF Core + PostgreSQL
+- EF Core + **PostgreSQL**（`master`）或 **MySQL**（[`master-mysql`](/backend/mysql)）
 - JWT + Refresh Token
 - SignalR、Hangfire、CAP、MinIO（按模块启用）
 
@@ -39,6 +39,7 @@ Infrastructure   → MinIO、JWT、SignalR 等实现
 
 - [解决方案结构](./structure)
 - [启动与配置](./run-and-config)
+- [MySQL 支持（master-mysql 分支）](./mysql)
 - [新增业务模块](./add-module)
 - [新增菜单与权限](./add-menu-permission)
 - [数据库迁移](./migration)

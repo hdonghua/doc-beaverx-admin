@@ -5,7 +5,12 @@ BeaverX Admin 是一套**前后端分离**的管理后台解决方案：
 | 仓库 | 技术栈 | 默认地址 |
 |------|--------|----------|
 | [beaverx-vue-admin](https://github.com/hdonghua/beaverx-vue-admin) | Vue 3 + Arco Design + Vite 8 | `http://localhost:5173` |
-| [BeaverX.Admin](https://github.com/hdonghua/BeaverX.Admin) | .NET 10 + EF Core + PostgreSQL | `http://localhost:5216` |
+| [BeaverX.Admin](https://github.com/hdonghua/BeaverX.Admin) | .NET 10 + EF Core + PostgreSQL / MySQL（见分支） | `http://localhost:5216` |
+
+::: info 数据库分支
+- **PostgreSQL**：默认分支 `master`
+- **MySQL 8+**：切换后端至 **`master-mysql`** 分支，详见 [MySQL 支持](/backend/mysql)
+:::
 
 ## 在线预览
 

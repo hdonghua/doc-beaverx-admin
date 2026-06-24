@@ -1,6 +1,6 @@
 # 数据库迁移
 
-BeaverX.Admin 使用 **EF Core + PostgreSQL**。实体变更后需添加迁移并更新数据库。
+BeaverX.Admin 使用 **EF Core**。默认 **`master`** 分支为 **PostgreSQL**；MySQL 请使用 **`master-mysql`** 分支（见 [MySQL 支持](./mysql)）。
 
 ## 常用命令
 

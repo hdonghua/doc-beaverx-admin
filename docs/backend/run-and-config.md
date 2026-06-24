@@ -7,6 +7,8 @@
 
 ### 数据库连接串
 
+**PostgreSQL**（`master` 分支）：
+
 ```json
 {
   "ConnectionStrings": {
@@ -14,6 +16,18 @@
   }
 }
 ```
+
+**MySQL**（`master-mysql` 分支，需先 `git checkout master-mysql`）：
+
+```json
+{
+  "ConnectionStrings": {
+    "Default": "Server=localhost;Port=3306;Database=beaverx-admin;User=root;Password=你的密码;Allow User Variables=True;"
+  }
+}
+```
+
+完整说明见 [MySQL 支持](./mysql)。
 
 ### JWT
 

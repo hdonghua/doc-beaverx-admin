@@ -25,7 +25,7 @@ hero:
 features:
   - icon: 🚀
     title: 快速上手
-    details: 按步骤配置 PostgreSQL、.NET API、Vue 前端，默认账号即可登录体验完整后台。
+    details: 按步骤配置 PostgreSQL 或 MySQL（`master-mysql` 分支）、.NET API、Vue 前端，默认账号即可登录体验完整后台。
   - icon: 🧩
     title: 后端模块化
     details: 基于 BeaverX 分层架构，讲清 Entity → AppService → Controller → 菜单种子 的完整链路。

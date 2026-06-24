@@ -1,6 +1,6 @@
 # 定时任务（Hangfire）
 
-BeaverX.Admin 使用 [Hangfire](https://www.hangfire.io/) + PostgreSQL 实现周期性任务，支持 **两种方式**：
+BeaverX.Admin 使用 [Hangfire](https://www.hangfire.io/) + **PostgreSQL / MySQL**（随分支：`master` / `master-mysql`）实现周期性任务，支持 **两种方式**：
 
 | 方式 | 适用场景 | 配置入口 |
 |------|----------|----------|
@@ -18,7 +18,7 @@ BeaverX.Admin 使用 [Hangfire](https://www.hangfire.io/) + PostgreSQL 实现周
 │  后台任务  scheduled-job:{id}  →  HttpApiScheduledJobRunner │
 │  代码任务  {类型全名}           →  CodeRecurringJobRunner    │
 ├─────────────────────────────────────────────────────────────┤
-│  存储：PostgreSQL（schema 见 Hangfire:SchemaName，默认 hangfire）│
+│  存储：PostgreSQL 或 MySQL（schema 见 Hangfire:SchemaName，默认 hangfire）│
 │  面板：/hangfire（HTTP Basic，见 appsettings Hangfire:Auth）   │
 └─────────────────────────────────────────────────────────────┘
 ```

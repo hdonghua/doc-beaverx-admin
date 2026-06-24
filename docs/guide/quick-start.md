@@ -8,7 +8,7 @@
 
 ## 1. 配置数据库
 
-编辑 `BeaverX.Admin.Http.Host/appsettings.Development.json`：
+**PostgreSQL**（`master` 分支）— 编辑 `BeaverX.Admin.Http.Host/appsettings.Development.json`：
 
 ```json
 {
@@ -17,6 +17,18 @@
   }
 }
 ```
+
+**MySQL**（`master-mysql` 分支）— 先执行 `git checkout master-mysql`，再配置：
+
+```json
+{
+  "ConnectionStrings": {
+    "Default": "Server=localhost;Port=3306;Database=beaverx-admin;User=root;Password=你的密码;Allow User Variables=True;"
+  }
+}
+```
+
+详见 [MySQL 支持](/backend/mysql)。
 
 ## 2. 执行迁移并启动后端
 
@@ -64,7 +76,7 @@ npm run dev
 | 现象 | 处理 |
 |------|------|
 | 前端 401 / 无法登录 | 检查 `VITE_API_BASE_URL`、后端是否启动、CORS |
-| 数据库连接失败 | 检查 PostgreSQL 服务、连接串、库是否已创建 |
+| 数据库连接失败 | PostgreSQL/MySQL 服务、连接串、库是否已创建；MySQL 分支是否已 `checkout master-mysql` |
 | 迁移报错 | 确认 .NET SDK 版本与 EF 工具已安装 |
 
 ::: info 教程待续

@@ -20,7 +20,7 @@
 
 ## 前置条件
 
-1. 所有 API 实例共用同一 PostgreSQL
+1. 所有 API 实例共用同一数据库（PostgreSQL 或 MySQL，见 [MySQL 支持](./mysql)）
 2. 部署 **Redis**（缓存、SignalR Backplane、在线用户追踪可共用同一实例，建议用 `Cache:KeyPrefix` 区分键空间）
 3. （若使用导出/上传）MinIO 对所有实例可达
 4. 各实例 `appsettings` 中 JWT、CORS 一致

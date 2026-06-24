@@ -8,7 +8,8 @@
 |------|----------|------|
 | [Node.js](https://nodejs.org/) | 20.19+（Vite 8 要求，推荐 22 LTS） | 前端与文档站 |
 | [.NET SDK](https://dotnet.microsoft.com/download) | 10.x | 后端 API |
-| [PostgreSQL](https://www.postgresql.org/) | 14+ | 业务数据库 |
+| [PostgreSQL](https://www.postgresql.org/) | 14+ | 业务数据库（后端 **`master`** 分支） |
+| [MySQL](https://www.mysql.com/) | 8+ | 业务数据库（后端 **`master-mysql`** 分支，见 [MySQL 支持](/backend/mysql)） |
 
 ## 可选
 
@@ -20,8 +21,11 @@
 ## 克隆代码
 
 ```bash
-# 后端
+# 后端（PostgreSQL 默认 master；MySQL 见下方）
 git clone https://github.com/hdonghua/BeaverX.Admin.git
+
+# 若使用 MySQL：
+# cd BeaverX.Admin && git checkout master-mysql
 
 # 前端
 git clone https://github.com/hdonghua/beaverx-vue-admin.git

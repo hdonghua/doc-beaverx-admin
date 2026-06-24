@@ -54,6 +54,7 @@ export default defineConfig({
             { text: '概览', link: '/backend/' },
             { text: '解决方案结构', link: '/backend/structure' },
             { text: '启动与配置', link: '/backend/run-and-config' },
+            { text: 'MySQL 支持', link: '/backend/mysql' },
           ],
         },
         {
