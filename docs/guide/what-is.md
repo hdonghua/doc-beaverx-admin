@@ -37,5 +37,5 @@ BeaverX Admin 是一套**前后端分离**的管理后台解决方案：
 - 密码：`Admin@123`
 
 ::: tip 建议阅读顺序
-[环境准备](./prerequisites) → [10 分钟跑起来](./quick-start) → [后端概览](/backend/) → [前端概览](/frontend/)
+[环境准备](./prerequisites) → [10 分钟跑起来](./quick-start) → [功能预览](./screenshots) → [后端概览](/backend/) → [前端概览](/frontend/)
 :::

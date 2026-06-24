@@ -5,8 +5,9 @@
   "description": "BeaverX Admin 前后端保姆级教程文档站",
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "sync:imgs": "node scripts/sync-imgs.mjs",
+    "docs:dev": "npm run sync:imgs && vitepress dev docs",
+    "docs:build": "npm run sync:imgs && vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {

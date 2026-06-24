@@ -15,6 +15,7 @@ export default defineConfig({
 
     nav: [
       { text: '指南', link: '/guide/what-is', activeMatch: '/guide/' },
+      { text: '功能预览', link: '/guide/screenshots' },
       { text: '后端教程', link: '/backend/', activeMatch: '/backend/' },
       { text: '前端教程', link: '/frontend/', activeMatch: '/frontend/' },
       { text: '实战专题', link: '/topics/', activeMatch: '/topics/' },
@@ -41,6 +42,7 @@ export default defineConfig({
             { text: '项目介绍', link: '/guide/what-is' },
             { text: '环境准备', link: '/guide/prerequisites' },
             { text: '10 分钟跑起来', link: '/guide/quick-start' },
+            { text: '功能预览', link: '/guide/screenshots' },
           ],
         },
       ],
@@ -61,6 +63,7 @@ export default defineConfig({
             { text: '新增业务模块', link: '/backend/add-module' },
             { text: '新增菜单与权限', link: '/backend/add-menu-permission' },
             { text: '数据库迁移', link: '/backend/migration' },
+            { text: '定时任务', link: '/backend/scheduled-jobs' },
             { text: '多节点部署', link: '/backend/multi-node-deployment' },
           ],
         },

@@ -13,6 +13,9 @@ hero:
       text: 10 分钟跑起来
       link: /guide/quick-start
     - theme: alt
+      text: 功能预览
+      link: /guide/screenshots
+    - theme: alt
       text: 在线预览
       link: https://beaverxadmin.com/
     - theme: alt
@@ -20,9 +23,6 @@ hero:
       link: /guide/what-is
 
 features:
-  - icon: 🌐
-    title: 在线体验
-    details: 打开 beaverxadmin.com，使用 admin / Admin@123 登录；演示环境每 5 分钟定时清理并覆盖数据。
   - icon: 🚀
     title: 快速上手
     details: 按步骤配置 PostgreSQL、.NET API、Vue 前端，默认账号即可登录体验完整后台。
