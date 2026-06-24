@@ -2,9 +2,20 @@
 
 前端仓库：[beaverx-vue-admin](https://github.com/hdonghua/beaverx-vue-admin)
 
+## 在线预览
+
+| 项目 | 说明 |
+|------|------|
+| 地址 | [https://beaverxadmin.com/](https://beaverxadmin.com/) |
+| 账号 | `admin` / `Admin@123` |
+
+::: warning 演示环境说明
+**每 5 分钟**系统会定时清理并覆盖数据，请勿保存重要信息。
+:::
+
 ## 技术栈
 
-- Vue 3 + TypeScript + Vite
+- Vue 3 + TypeScript + Vite 8
 - Arco Design Vue、Pinia、Vue Router
 - Axios、SignalR、vue-i18n
 

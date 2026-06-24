@@ -2,7 +2,7 @@
 
 ## 环境要求
 
-- Node.js 18+
+- Node.js 20.19+（Vite 8 要求，推荐 22 LTS）
 - pnpm / npm / yarn 均可
 
 ## 安装与启动

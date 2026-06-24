@@ -2,6 +2,10 @@
 
 按顺序执行以下步骤，可在本地完整体验 BeaverX Admin。
 
+::: tip 不想本地搭建？
+可直接打开 [在线预览](https://beaverxadmin.com/)，使用 **admin / Admin@123** 登录。演示环境**每 5 分钟**会定时清理并覆盖数据，请勿保存重要信息。
+:::
+
 ## 1. 配置数据库
 
 编辑 `BeaverX.Admin.Http.Host/appsettings.Development.json`：

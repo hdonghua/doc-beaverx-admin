@@ -2,6 +2,17 @@
 
 后端仓库：[BeaverX.Admin](https://github.com/hdonghua/BeaverX.Admin)
 
+## 在线预览
+
+| 项目 | 说明 |
+|------|------|
+| 地址 | [https://beaverxadmin.com/](https://beaverxadmin.com/) |
+| 账号 | `admin` / `Admin@123` |
+
+::: warning 演示环境说明
+**每 5 分钟**系统会定时清理并覆盖数据，请勿保存重要信息。
+:::
+
 ## 技术栈
 
 - .NET 10、ASP.NET Core、BeaverX 模块化框架

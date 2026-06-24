@@ -6,7 +6,7 @@
 
 | 工具 | 版本建议 | 用途 |
 |------|----------|------|
-| [Node.js](https://nodejs.org/) | 18+ | 前端与文档站 |
+| [Node.js](https://nodejs.org/) | 20.19+（Vite 8 要求，推荐 22 LTS） | 前端与文档站 |
 | [.NET SDK](https://dotnet.microsoft.com/download) | 10.x | 后端 API |
 | [PostgreSQL](https://www.postgresql.org/) | 14+ | 业务数据库 |
 

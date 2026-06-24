@@ -4,8 +4,21 @@ BeaverX Admin 是一套**前后端分离**的管理后台解决方案：
 
 | 仓库 | 技术栈 | 默认地址 |
 |------|--------|----------|
-| [beaverx-vue-admin](https://github.com/hdonghua/beaverx-vue-admin) | Vue 3 + Arco Design + Vite | `http://localhost:5173` |
+| [beaverx-vue-admin](https://github.com/hdonghua/beaverx-vue-admin) | Vue 3 + Arco Design + Vite 8 | `http://localhost:5173` |
 | [BeaverX.Admin](https://github.com/hdonghua/BeaverX.Admin) | .NET 10 + EF Core + PostgreSQL | `http://localhost:5216` |
+
+## 在线预览
+
+无需本地搭建，可直接体验完整功能：
+
+| 项目 | 说明 |
+|------|------|
+| 地址 | [https://beaverxadmin.com/](https://beaverxadmin.com/) |
+| 账号 | `admin` / `Admin@123` |
+
+::: warning 演示环境说明
+在线演示环境**每 5 分钟**会定时清理并覆盖数据，请勿保存重要信息或用于生产。
+:::
 
 ## 你能学到什么
 
